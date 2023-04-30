@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/head'); %>
+  </head>
+  <body class="container">
+    <header><%- include('../partials/header'); %></header>
+
+    <main>
+      <div class="jumbotron">
+        <h1>This is great</h1>
+        <p>Welcome to templating using EJS</p>
+      </div>
+
+      <div class="jumbotron">
+        <h1>HTML template file with placeholders</h1>
+        <p>Name: <%= data.name %></p>
+        <p>Age: <%=data.age%></p>
+        <p>City: <%=data.city%></p>
+        <p>Favorite Food: <%=data.favorite_food%></p>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
+</html>
