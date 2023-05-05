@@ -19,10 +19,21 @@ app.get('/par/:id', function(req, res){
   res.send(`<h1>The id you specified is ${req.params.id}</h1>`);
 });
 
-app.get('/data/:name/:id', function(req, res) {
-  res.send(`<p>The id you specified is ${req.params.id}</p>`);
-  res.send(`<p>The name you specified is ${req.params.name}</p>`);
+
+app.get('/add/:num1/:num2', function(req, res) {
+  let num3= Number(req.params.num1 )+ Number(req.params.num2);
+  res.send(`<p>The id you specified is ${num3}</p>`);
+  //res.send(``);
 });
+
+app.get('/data/:name/:id', function(req, res) {
+  res.send(`<p>The id you specified is ${req.params.id}</p>
+  <p>The name you specified is ${req.params.name}</p>
+  `);
+  //res.send(``);
+});
+
+
 
 // http://127.0.0.1:3000/par/2
 
@@ -35,7 +46,10 @@ app.use(express.json());
 
 
 app.post('/test', function(req, res){ 
-  res.send(`You just called the post method at "/test"!  title = ${req.body.title}`);
+  res.send(`You just called the post method at "/test"!  
+  title = ${req.body.title}
+  <br> /your id is: ${req.body.id}
+  `);
   console.log(req.body);
 
 });
@@ -46,5 +60,5 @@ app.listen(3000, () =>
 
 
 // curl -H 'Content-Type: application/json' \
-//       -d '{ "title":"foo","body":"bar", "id": 1}' \
+//       -d '{ "title":"miu", "id": 42}' \
 //       -X POST http://127.0.0.1:3000/test
